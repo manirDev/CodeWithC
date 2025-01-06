@@ -7,7 +7,7 @@
 #include <string.h>
 
 //Note: this is google.se ip address.
-#define IP "142.250.187.163"
+#define IP "74.6.143.26"
 #define PORT 80
 #define BUFFER_SIZE 0x200
 

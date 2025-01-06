@@ -5,7 +5,7 @@
 #include <string.h>
 #include <arpa/inet.h>
 
-#define SERVER_PORT_NUMBER 4321
+#define SERVER_PORT_NUMBER 8084
 #define BUFFER_SIZE 0x200
 
 
@@ -61,10 +61,10 @@ int main()
     
     printf("Client connected\n");
 
-    read(retClient, buffer, BUFFER_SIZE - 1);
+    int i4RecSize = read(retClient, buffer, BUFFER_SIZE - 1);
     data = "httpd v1.0\n";
     write(retClient, data, strlen(data));
-
+    write(1, buffer, i4RecSize);
     close(retClient);
     close(retServer);
     return 0;
