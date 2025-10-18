@@ -1,0 +1,19 @@
+CC = clang
+CFLAGS = -Wall -Wextra -std=c11
+SRC = $(wildcard src/*.c)
+OBJ = $(SRC:.c=.o)
+BIN_DIR = build
+EXEC = $(BIN_DIR)/embedded_demo
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
+
+run: all
+	@echo "Running embedded demo..."
+	@$(EXEC)
+
+clean:
+	rm -rf $(BIN_DIR) src/*.o
